@@ -26,6 +26,10 @@ struct FQuestGoalInfo
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	FName RewardID = FName("defaultRewardId");
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	int CompletionProgress = 0;
+
 };
 
 USTRUCT(BlueprintType)
@@ -71,6 +75,6 @@ public:
 	UDataTable* QuestDataTable;
 
 	UFUNCTION(Server, Reliable, BlueprintCallable, Category = "QuestLogic")
-	virtual void AddQuest(FName questID);
+	virtual void AddQuest(FName QuestID);
 
 };

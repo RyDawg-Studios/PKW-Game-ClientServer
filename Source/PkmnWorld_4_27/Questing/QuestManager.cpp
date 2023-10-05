@@ -4,11 +4,11 @@
 #include "QuestManager.h"
 #include <Net/UnrealNetwork.h>
 
-void UQuestManager::AddQuest_Implementation(FName questID) {
-	FQuestInfo* questInfo = QuestDataTable -> FindRow<FQuestInfo>(questID, TEXT("Add Quest"), true);
+void UQuestManager::AddQuest_Implementation(FName QuestID) {
+	FQuestInfo* questInfo = QuestDataTable -> FindRow<FQuestInfo>(QuestID, TEXT("Add Quest"), true);
 
-	if (questInfo != NULL) {
-		AvailableQuests.Add(questID);
+	if (questInfo) {
+		AvailableQuests.Add(QuestID);
 	}
 	return;
 }
