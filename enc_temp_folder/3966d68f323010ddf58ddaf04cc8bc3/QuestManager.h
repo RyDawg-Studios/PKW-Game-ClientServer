@@ -68,9 +68,9 @@ public:
 	class UQuestTracker* TrackingQuest;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "QuestData")
-	UDataTable* QuestDataTable;
+	class UDataTable* QuestDataTable;
 
-	UFUNCTION(Server, Reliable, BlueprintCallable, Category = "QuestLogic")
+	UFUNCTION(Client, Reliable, BlueprintCallable, Category = "QuestLogic")
 	virtual void AddQuest(FName questID);
 
 };
