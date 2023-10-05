@@ -11,9 +11,12 @@ public class PkmnWorld_4_27EditorTarget : TargetRules
 		DefaultBuildSettings = BuildSettingsVersion.V2;
 
 		ExtraModuleNames.AddRange( new string[] { "PkmnWorld_4_27" } );
-        
-        // fix error: "variable 'LayerNames' set but not used"
-        bOverrideBuildEnvironment = true;
-        AdditionalCompilerArguments = "-Wno-unused-but-set-variable";
-	}
+
+        if (Target.Platform == UnrealTargetPlatform.Mac)
+        {
+            // fix error: "variable 'LayerNames' set but not used"
+            bOverrideBuildEnvironment = true;
+            AdditionalCompilerArguments = "-Wno-unused-but-set-variable";
+        }
+    }
 }
