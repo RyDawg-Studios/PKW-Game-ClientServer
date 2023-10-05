@@ -4,13 +4,13 @@
 
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
-#include "QuestTracker.generated.h"
+#include "QuestObject.generated.h"
 
 /**
  * 
  */
 UCLASS(Blueprintable)
-class PKMNWORLD_4_27_API UQuestTracker : public UObject
+class PKMNWORLD_4_27_API UQuestObject : public UObject
 {
 	GENERATED_BODY()
 };

@@ -2,6 +2,7 @@
 
 
 #include "QuestManager.h"
-#include "QuestTracker.h"
 
-
+void UQuestManager::AddQuest_Implementation(FName questID) {
+	return;
+}

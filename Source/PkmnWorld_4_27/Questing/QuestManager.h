@@ -13,18 +13,35 @@
  */
 
 USTRUCT(BlueprintType)
+struct FQuestGoalInfo 
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	TSubclassOf<UQuestTracker> QuestTracker;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	bool bIsRequired = true;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	FName RewardID;
+
+};
+
+USTRUCT(BlueprintType)
 struct FQuestInfo : public FTableRowBase 
 {
 	GENERATED_BODY()
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString questName;
+	FString questName = FString("Default Quest Name");
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString questDesc;
+	FString questDesc = FString("Default Quest Description!");
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	TSubclassOf<UQuestTracker> QuestTracker;
+	TArray<FQuestGoalInfo> QuestTrackers;
+
 };
 
 
@@ -38,7 +55,16 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "QuestTracking") 
 	TMap<FName, UQuestTracker*> ActiveQuests;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "QuestTracking")
+	TArray<FName> AvailableQuests;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "QuestTracking")
+	class UQuestTracker* TrackingQuest;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "QuestData")
 	class UDataTable* QuestDataTable;
+
+	UFUNCTION(Client, Reliable, BlueprintCallable, Category = "QuestLogic")
+	virtual void AddQuest(FName questID);
 
 };
