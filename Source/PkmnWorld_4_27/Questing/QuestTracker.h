@@ -13,4 +13,8 @@ UCLASS(Blueprintable)
 class PKMNWORLD_4_27_API UQuestTracker : public UObject
 {
 	GENERATED_BODY()
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "QuestTracking")
+	int QuestProgess = 0;
 };
