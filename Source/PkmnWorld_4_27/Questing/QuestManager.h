@@ -31,7 +31,7 @@ struct FQuestGoalInfo
 	int CompletionProgress = 0;
 
 };
-
+//
 USTRUCT(BlueprintType)
 struct FQuestInfo : public FTableRowBase 
 {
