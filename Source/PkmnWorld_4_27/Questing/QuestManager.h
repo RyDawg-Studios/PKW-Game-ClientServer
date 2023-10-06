@@ -59,7 +59,6 @@ UCLASS(Blueprintable)
 class PKMNWORLD_4_27_API UQuestManager : public UObject
 {
 	GENERATED_BODY()
-	
 
 public: 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "QuestTracking") 
@@ -74,7 +73,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "QuestData")
 	UDataTable* QuestDataTable;
 
-	UFUNCTION(Server, Reliable, BlueprintCallable, Category = "QuestLogic")
+	UFUNCTION(BlueprintCallable, Category = "QuestLogic")
 	virtual void AddQuest(FName QuestID);
 
 };
